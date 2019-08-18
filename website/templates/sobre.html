@@ -1,0 +1,19 @@
+{% extends 'shared/layout.html' %} {% block conteudo %}
+
+<div class="form-card">
+    <form method="get" action="/nova_ideia">
+        <button type="submit">Cadastrar nova ideia</button>
+    </form>
+
+    <p>
+        <h1>Sobre</h1>
+        {% for ideia in ideias %}
+        <p><b>Nome:</b> {{ideia.pessoa.nome}} {{ideia.pessoa.sobrenome}}</p>
+        <p><b>Título da ideia:</b> {{ideia.titulo}}</p>
+        <p><b>Categoria:</b> {{ideia.categorias}}</p>
+        <p> <b>Descrição da ideia:</b> {{ideia.descricao}}</p>
+        <hr> {% endfor %}
+    </p>
+</div>
+
+{% endblock %}

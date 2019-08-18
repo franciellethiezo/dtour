@@ -1,0 +1,150 @@
+{% extends 'shared/layout.html' %} {% block conteudo %}
+<section class="container-fluido ">
+    <div class="row">
+        <div class="img-fundo-conhecer">
+            <h3 class="title-conhecer">Venha conhecer novas Culturas</h3>
+        </div>
+
+        <div class="informacoes">
+            <h3 class="title-informacoes">
+                Por que fazer <br> Intercâmbio?
+            </h3>
+            <div class="bloco-informacoes"></div>
+            <p class="text-informacoes ">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas odio tenetur, voluptatem sed nobis, esse, et quisquam quas ex recusandae possimus commodi illum doloremque assumenda placeat nihil! Dolor, tenetur voluptates
+            </p>
+            <div class="mt-1 pl-1">
+                 <a href="#" class="btn btn-cadastrar">Confira</a>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+
+
+<section class="conatiner-fluido mt-1 mb-1">
+    <div class="row w-100 flex-colunas mb-1">
+        <h2 class="title-servicos mt-1">Nossos Serviços</h2>
+
+        <p class="mt-1 text-servicos mb-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat exercitationem atque vero nulla in, nemo eaque! Veritatis, excepturi. Omnis quis esse ratione id veritatis voluptatem doloremque perspiciatis obcaecati enim ad!</p>
+
+    </div>
+
+<div class="wrapper">
+    <ul class="carousel" data-target="carousel">
+        <li class="card" data-target="card">
+           <figure>
+            <img src="/static/img/carrossel.jpg" class="img-carrosel" alt="">
+            <figcaption>Teste</figcaption>      
+        </figure>
+        </li>
+        <li class="card" data-target="card">
+           <figure>
+            <img src="/static/img/carrossel.jpg" class="img-carrosel" alt="">
+            <figcaption>Teste</figcaption>      
+        </figure>
+        </li>
+        <li class="card" data-target="card">
+            <figure>
+            <img src="/static/img/carrossel.jpg" class="img-carrosel" alt="">
+            <figcaption>Teste</figcaption>          
+        </figure>
+        </li>
+        <li class="card" data-target="card">
+            <figure>
+            <img src="/static/img/carrossel.jpg" class="img-carrosel" alt="">
+            <figcaption>Teste</figcaption>          
+        </figure>
+        </li>
+        <li class="card" data-target="card">
+            <figure>
+            <img src="/static/img/carrossel.jpg" class="img-carrosel" alt="">
+            <figcaption>Teste</figcaption>          
+        </figure>
+        </li>
+        <li class="card" data-target="card">
+            <figure>
+            <img src="/static/img/carrossel.jpg" class="img-carrosel" alt="">
+            <figcaption>Teste</figcaption>          
+        </figure>
+        </li>
+        <li class="card" data-target="card">
+            <figure>
+            <img src="/static/img/carrossel.jpg" class="img-carrosel" alt="">
+            <figcaption>Teste</figcaption>          
+        </figure>
+        </li>
+        <li class="card" data-target="card">
+            <figure>
+            <img src="/static/img/carrossel.jpg" class="img-carrosel" alt="">
+            <figcaption>Teste</figcaption>          
+        </figure>
+        </li>
+        <li class="card" data-target="card">
+            <figure>
+            <img src="/static/img/carrossel.jpg" class="img-carrosel" alt="">
+            <figcaption>Teste</figcaption>          
+        </figure>
+        </li>
+    </ul>
+    <div class="button-wrapper">
+        <button data-action="slideLeft">L</button>
+        <button data-action="slideRight">R</button>
+    </div>
+</div>
+
+
+</section>
+
+<script>
+   
+    const carousel = document.querySelector("[data-target='carousel']");
+    const card = carousel.querySelector("[data-target='card']");
+    const leftButton = document.querySelector("[data-action='slideLeft']");
+    const rightButton = document.querySelector("[data-action='slideRight']");
+
+    
+    const carouselWidth = carousel.offsetWidth;
+    const cardStyle = card.currentStyle || window.getComputedStyle(card)
+    const cardMarginRight = Number(cardStyle.marginRight.match(/\d+/g)[0]);
+
+    const cardCount = carousel.querySelectorAll("[data-target='card']").length;
+
+
+    let offset = 0;
+    const maxX = -((cardCount / 3) * carouselWidth +
+        (cardMarginRight * (cardCount / 3)) -
+        carouselWidth - cardMarginRight);
+
+
+
+    leftButton.addEventListener("click", function () {
+        if (offset !== 0) {
+            offset += carouselWidth + cardMarginRight;
+            carousel.style.transform = `translateX(${offset}px)`;
+        }
+    })
+
+    rightButton.addEventListener("click", function () {
+        if (offset !== maxX) {
+            offset -= carouselWidth + cardMarginRight;
+            carousel.style.transform = `translateX(${offset}px)`;
+        }
+    })
+    </script>
+
+
+<script>
+    let navList = document.getElementById("nav-lists");
+
+    function Show() {
+        navList.classList.add("_Menus-show");
+    }
+
+    function Hide() {
+        navList.classList.remove("_Menus-show");
+    }
+</script>
+{% endblock %}
